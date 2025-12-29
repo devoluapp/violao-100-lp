@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Método Violão 100 - Acesso Vitalício</title>
+    <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            gold: '#d4af37',
+                            orange: '#e65100',
+                            dark: '#0f0f0f',
+                            gray: '#1a1a1a',
+                            light: '#f5f5f5'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                        body: ['Open Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600&display=swap"
+        rel="stylesheet">
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #0f0f0f;
+            color: #f5f5f5;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .hero-bg {
+            background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.9)), url('https://images.unsplash.com/photo-1510915361408-9b2c7248b5e5?q=80&w=2069&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .btn-cta {
+            background: linear-gradient(to right, #e65100, #ff9800);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 9999px;
+            font-weight: 800;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(230, 81, 0, 0.4);
+            display: inline-block;
+            text-align: center;
+        }
+
+        .btn-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(230, 81, 0, 0.6);
+            filter: brightness(1.1);
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+    </style>
+</head>
+
+<body class="antialiased overflow-x-hidden">
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero-bg min-h-screen flex items-center justify-center py-20 px-4">
+        <div class="max-w-6xl mx-auto w-full grid md:grid-cols-2 gap-12 items-center">
+            <div class="text-left space-y-6">
+                <div
+                    class="inline-block bg-brand-orange/20 text-brand-gold px-4 py-1 rounded-full text-sm font-bold tracking-wider border border-brand-orange/30">
+                    MÉTODO VIOLÃO 100
+                </div>
+                <h1 class="hidden">Método Violão 100</h1>
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight text-white">
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-yellow-500">
+                        DESBLOQUEIE SEU POTENCIAL NO VIOLÃO:</span>
+                    30 DIAS PARA TRANSFORMAR SUA MANEIRA DE TOCAR!
+                </h2>
+                <h3 class="text-xl text-gray-300 font-light leading-relaxed">
+                    Inscreva-se agora e tenha acesso a aulas exclusivas, projetadas para acelerar seu progresso e
+                    surpreender a todos com sua evolução!
+                </h3>
+                <div class="pt-4">
+                    <a href="https://go.hotmart.com/G103537414S?ap=a1c9" class="btn-cta text-lg w-full md:w-auto">
+                        GARANTIR ACESSO
+                    </a>
+                </div>
+                <!-- <img src="foto_arthur_endo.png" alt="Foto do professor Arthur Endo" width="80%" height="auto" /> -->
+            </div>
+
+            <!-- Video Container -->
+            <div class="relative group">
+                <div
+                    class="absolute -inset-1 bg-gradient-to-r from-orange-600 to-yellow-600 rounded-xl blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200">
+                </div>
+                <div
+                    class="relative bg-black rounded-xl overflow-hidden shadow-2xl aspect-video border border-gray-800">
+                    <iframe class="w-full h-full"
+                        src="https://www.youtube.com/embed/M-sn8wvma3M?autoplay=0&controls=0&rel=0&showinfo=0&modestbranding=1&loop=1&playlist=M-sn8wvma3M"
+                        title="Vídeo de Apresentação" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Method Section -->
+    <section id="metodo" class="py-20 bg-brand-dark relative">
+        <div class="max-w-5xl mx-auto px-4">
+            <div class="text-center mb-16 space-y-4">
+                <h2 class="text-3xl md:text-4xl font-bold">NÃO IMPORTA SE VOCÊ JÁ TENTOU ANTES E NÃO CONSEGUIU EVOLUIR
+                    NO VIOLÃO</h2>
+                <h3 class="text-xl text-gray-400 max-w-3xl mx-auto">O PROBLEMA NÃO ESTÁ EM VOCÊ E SIM NO MÉTODO. O
+                    MÉTODO VIOLÃO 100 É DIFERENTE DE TUDO QUE VOCÊ JÁ VIU:</h3>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Card 1 -->
+                <div class="glass-card p-8 rounded-2xl hover:bg-white/5 transition duration-300">
+                    <span class="material-icons text-4xl text-brand-orange mb-4">library_music</span>
+                    <h4 class="text-xl font-bold mb-2 text-white">100 aulas personalizadas</h4>
+                    <p class="text-gray-400">Conteúdo completo do básico ao avançado</p>
+                </div>
+                <!-- Card 2 -->
+                <div class="glass-card p-8 rounded-2xl hover:bg-white/5 transition duration-300">
+                    <span class="material-icons text-4xl text-brand-orange mb-4">schedule</span>
+                    <h4 class="text-xl font-bold mb-2 text-white">Poucos Minutos por Dia</h4>
+                    <p class="text-gray-400">Você não precisa de muito tempo para evoluir e notar seu progresso!</p>
+                </div>
+                <!-- Card 3 -->
+                <div class="glass-card p-8 rounded-2xl hover:bg-white/5 transition duration-300">
+                    <span class="material-icons text-4xl text-brand-orange mb-4">trending_up</span>
+                    <h4 class="text-xl font-bold mb-2 text-white">Evolução Contínua</h4>
+                    <p class="text-gray-400">Apostilas de revisão e um sistema de organização dos estudos</p>
+                </div>
+                <!-- Card 4 -->
+                <div class="glass-card p-8 rounded-2xl hover:bg-white/5 transition duration-300">
+                    <span class="material-icons text-4xl text-brand-orange mb-4">school</span>
+                    <h4 class="text-xl font-bold mb-2 text-white">Metodologia Estimulante</h4>
+                    <p class="text-gray-400">Sem chatice e enrolação, cada nível é mais desafiador que o outro</p>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <a href="https://go.hotmart.com/G103537414S?ap=a1c9" class="btn-cta">GARANTIR ACESSO</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Topics Carousel/Grid Section -->
+    <section id="assuntos" class="py-20 bg-brand-gray">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-3xl font-bold mb-4 text-brand-gold">QUER DAR UMA ESPIADA NOS ASSUNTOS QUE
+                    VOCÊ VAI ENCONTRAR DENTRO DOS 100 NÍVEIS?</h2>
+                <h3 class="text-lg text-gray-300">Confira abaixo alguns dos assuntos que você verá no Método Violão 100:
+                </h3>
+            </div>
+
+            <!-- Grid Layout for Topics (More pro than a simple scroll for desktop) -->
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+                <!-- imgs -->
+                <div class="group relative overflow-hidden rounded-lg border border-gray-700">
+                    <img src="img/nivel-03-leitura-de-tablaturas.png" alt="Nível 3 - Leitura de tablaturas"
+                        class="w-full h-auto transform group-hover:scale-110 transition duration-500">
+                </div>
+                <div class="group relative overflow-hidden rounded-lg border border-gray-700">
+                    <img src="img/nivel-04-principios-da-mao-direita.png" alt="Nível 4 - Principios da mão direita"
+                        class="w-full h-auto transform group-hover:scale-110 transition duration-500">
+                </div>
+                <div class="group relative overflow-hidden rounded-lg border border-gray-700">
+                    <img src="img/nivel-06-distancia-entre-os-trastes.png" alt="Nível 6 - Distância entre os trastes"
+                        class="w-full h-auto transform group-hover:scale-110 transition duration-500">
+                </div>
+                <div class="group relative overflow-hidden rounded-lg border border-gray-700">
+                    <img src="img/nivel-08-tudo-sobre-unhas.png" alt="Nível 8 - Tudo sobre unhas"
+                        class="w-full h-auto transform group-hover:scale-110 transition duration-500">
+                </div>
+                <div class="group relative overflow-hidden rounded-lg border border-gray-700">
+                    <img src="img/nivel-29-vibrato.png" alt="Nível 29 - Vibrato"
+                        class="w-full h-auto transform group-hover:scale-110 transition duration-500">
+                </div>
+                <div class="group relative overflow-hidden rounded-lg border border-gray-700">
+                    <img src="img/nivel-32-legato.png" alt="Nível 32 - Legato"
+                        class="w-full h-auto transform group-hover:scale-110 transition duration-500">
+                </div>
+                <div class="group relative overflow-hidden rounded-lg border border-gray-700">
+                    <img src="img/nivel-33-abertura-dos-dedos.png" alt="Nível 33 - Abertura dos dedos"
+                        class="w-full h-auto transform group-hover:scale-110 transition duration-500">
+                </div>
+                <div class="group relative overflow-hidden rounded-lg border border-gray-700">
+                    <img src="img/nivel-35-dedilhado.png" alt="Nível 35 - Dedilhado"
+                        class="w-full h-auto transform group-hover:scale-110 transition duration-500">
+                </div>
+                <div class="group relative overflow-hidden rounded-lg border border-gray-700">
+                    <img src="img/nivel-43-aperfeicoamento-do-dedilhado.png"
+                        alt="Nível 43 - Aperfeiçoamento do dedilhado"
+                        class="w-full h-auto transform group-hover:scale-110 transition duration-500">
+                </div>
+                <div class="group relative overflow-hidden rounded-lg border border-gray-700">
+                    <img src="img/nivel-59-dedilhado.png" alt="Nível 59 - Dedilhado"
+                        class="w-full h-auto transform group-hover:scale-110 transition duration-500">
+                </div>
+                <div class="group relative overflow-hidden rounded-lg border border-gray-700">
+                    <img src="img/nivel-99-percussao-no-violao.png" alt="Nível 99 - Percussão no violão"
+                        class="w-full h-auto transform group-hover:scale-110 transition duration-500">
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <a href="https://go.hotmart.com/G103537414S?ap=a1c9" class="btn-cta">GARANTIR ACESSO</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="depoimentos" class="py-20 bg-brand-dark">
+        <div class="max-w-6xl mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-2">JUNTE-SE A UMA COMUNIDADE COM MAIS DE 10.000
+                ALUNOS!</h2>
+            <h3 class="text-center text-gray-400 mb-12">Confira os depoimentos de alguns dos nossos milhares de alunos:
+            </h3>
+
+            <!-- Video Testimonials -->
+            <div class="grid md:grid-cols-2 gap-8 mb-16">
+                <div class="bg-gray-800 rounded-2xl overflow-hidden shadow-lg border border-gray-700">
+                    <div class="aspect-video">
+                        <iframe class="w-full h-full"
+                            src="https://www.youtube.com/embed/glkNSIlEdYo?controls=0&rel=0&showinfo=0&modestbranding=1"
+                            frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <div class="p-6">
+                        <p class="italic text-gray-300">"Aqui você não aprende apenas a tocar violão, você também está
+                            recebendo ensinamentos e as experiências de uma pessoa que realmente vive a música"</p>
+                    </div>
+                </div>
+                <div class="bg-gray-800 rounded-2xl overflow-hidden shadow-lg border border-gray-700">
+                    <div class="aspect-video">
+                        <iframe class="w-full h-full"
+                            src="https://www.youtube.com/embed/2EO-2FfYsTE?controls=0&rel=0&showinfo=0&modestbranding=1"
+                            frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <div class="p-6">
+                        <p class="italic text-gray-300">"Já fiz vários cursos antes, mas nunca tive a oportunidade de
+                            aprender as técnicas que o Arthur passa... Isso foi muito importante para minha evolução no
+                            violão"</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Text Testimonials Grid -->
+            <div class="space-y-4">
+                <h3 class="text-2xl font-bold text-center text-brand-gold">Depoimentos</h3>
+                <h4 class="text-center text-gray-400 mb-8">O que disseram recentemente..</h4>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- T1 -->
+                    <div
+                        class="bg-gray-800 p-6 rounded-xl border border-gray-700 hover:border-brand-orange/50 transition duration-300">
+                        <div class="flex items-center mb-4 text-brand-orange">
+                            <span class="material-icons">star</span><span class="material-icons">star</span><span
+                                class="material-icons">star</span><span class="material-icons">star</span><span
+                                class="material-icons">star</span>
+                        </div>
+                        <p class="text-gray-300 text-sm mb-4">"Cara, eu comprei o curso e, no mesmo dia, aprendi a
+                            dedilhar! Já fazia anos que eu sonhava em aprender a tocar violão, mas não sentia confiança
+                            suficiente para isso. Quando vi sua propaganda no Instagram, algo me fez seguir em frente.
+                            Comprei um violão semana passada e seu curso logo em seguida. Estou gostando muito! Aprendi
+                            a ler tablatura, algo que antes parecia tão difícil. Obrigado, obrigado mesmo!"</p>
+                        <div class="border-t border-gray-700 pt-4">
+                            <p class="font-bold text-white">Pedro Santos</p>
+                            <p class="text-xs text-gray-500">Aluno</p>
+                        </div>
+                    </div>
+                    <!-- T2 -->
+                    <div
+                        class="bg-gray-800 p-6 rounded-xl border border-gray-700 hover:border-brand-orange/50 transition duration-300">
+                        <div class="flex items-center mb-4 text-brand-orange">
+                            <span class="material-icons">star</span><span class="material-icons">star</span><span
+                                class="material-icons">star</span><span class="material-icons">star</span><span
+                                class="material-icons">star</span>
+                        </div>
+                        <p class="text-gray-300 text-sm mb-4">"Obrigado pelas aulas, professor! Muita gratidão pelo
+                            curso!"</p>
+                        <div class="border-t border-gray-700 pt-4">
+                            <p class="font-bold text-white">Ricardo Oliveira</p>
+                            <p class="text-xs text-gray-500">Aluno</p>
+                        </div>
+                    </div>
+                    <!-- T3 -->
+                    <div
+                        class="bg-gray-800 p-6 rounded-xl border border-gray-700 hover:border-brand-orange/50 transition duration-300">
+                        <div class="flex items-center mb-4 text-brand-orange">
+                            <span class="material-icons">star</span><span class="material-icons">star</span><span
+                                class="material-icons">star</span><span class="material-icons">star</span><span
+                                class="material-icons">star</span>
+                        </div>
+                        <p class="text-gray-300 text-sm mb-4">"Oi! Queria dizer que me inscrevi no seu curso Violão 100
+                            e estou encantado com a qualidade das aulas! Muito obrigado por oferecer um conteúdo tão
+                            bom!"</p>
+                        <div class="border-t border-gray-700 pt-4">
+                            <p class="font-bold text-white">Lucas Mendes</p>
+                            <p class="text-xs text-gray-500">Aluno</p>
+                        </div>
+                    </div>
+                    <!-- T4 -->
+                    <div
+                        class="bg-gray-800 p-6 rounded-xl border border-gray-700 hover:border-brand-orange/50 transition duration-300">
+                        <div class="flex items-center mb-4 text-brand-orange">
+                            <span class="material-icons">star</span><span class="material-icons">star</span><span
+                                class="material-icons">star</span><span class="material-icons">star</span><span
+                                class="material-icons">star</span>
+                        </div>
+                        <p class="text-gray-300 text-sm mb-4">"Estou fazendo o seu curso e é a primeira vez que me sinto
+                            avançando no violão. Sou cantora, mas sempre tive muita dificuldade em tocar. Encontrar seu
+                            curso e sua metodologia me despertaram para, finalmente, aprender. Obrigada por fazer um
+                            curso tão incrível! Estou no nível 34!"</p>
+                        <div class="border-t border-gray-700 pt-4">
+                            <p class="font-bold text-white">Marina Silva</p>
+                            <p class="text-xs text-gray-500">cantora</p>
+                        </div>
+                    </div>
+                    <!-- T5 -->
+                    <div
+                        class="bg-gray-800 p-6 rounded-xl border border-gray-700 hover:border-brand-orange/50 transition duration-300">
+                        <div class="flex items-center mb-4 text-brand-orange">
+                            <span class="material-icons">star</span><span class="material-icons">star</span><span
+                                class="material-icons">star</span><span class="material-icons">star</span><span
+                                class="material-icons">star</span>
+                        </div>
+                        <p class="text-gray-300 text-sm mb-4">"A qualidade deste curso está simplesmente incrível. Muito
+                            difícil encontrar algo semelhante. Parabéns! Iniciei ontem e estou super empolgada! Você é
+                            um verdadeiro mestre do violão e da música! Meu sonho de infância de tocar violão avançado
+                            foi restaurado com sucesso! Obrigada por isso!"</p>
+                        <div class="border-t border-gray-700 pt-4">
+                            <p class="font-bold text-white">Carolina Lima</p>
+                            <p class="text-xs text-gray-500">Aluna</p>
+                        </div>
+                    </div>
+                    <!-- T6 -->
+                    <div
+                        class="bg-gray-800 p-6 rounded-xl border border-gray-700 hover:border-brand-orange/50 transition duration-300">
+                        <div class="flex items-center mb-4 text-brand-orange">
+                            <span class="material-icons">star</span><span class="material-icons">star</span><span
+                                class="material-icons">star</span><span class="material-icons">star</span><span
+                                class="material-icons">star</span>
+                        </div>
+                        <p class="text-gray-300 text-sm mb-4">"Estou fazendo o curso e é excelente! Após muitos anos
+                            estagnado, perdido e desanimado, finalmente estou evoluindo e de forma rápida (mas ligada à
+                            dedicação). O que Arthur Endo faz é organizar e sistematizar o estudo para que a gente
+                            assimile e aprimore cada passo, criando uma cadeia evolutiva da técnica. Isso motiva muito!
+                            Arthur Endo, meu professor. Recomendo!"</p>
+                        <div class="border-t border-gray-700 pt-4">
+                            <p class="font-bold text-white">Fernando Costa</p>
+                            <p class="text-xs text-gray-500">Aluno</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Authority & Arguments -->
+    <section id="argumentos" class="py-20 bg-brand-gray">
+        <div class="max-w-4xl mx-auto px-4 space-y-24">
+
+            <!-- Cheap? -->
+            <div
+                class="bg-gradient-to-br from-gray-800 to-gray-900 p-8 md:p-12 rounded-2xl border border-gray-700 text-center shadow-xl">
+                <h2 class="text-3xl font-bold mb-6 text-white">POR QUE É TÃO BARATO?</h2>
+                <p class="text-lg text-gray-300 leading-relaxed">
+                    O objetivo do curso é democratizar o acesso ao estudo de violão no Brasil e oferecer um ensino
+                    de qualidade para o máximo de alunos possível. Aproveite o preço promocional do plano
+                    vitalício e embarque nessa jornada com mais de 10.000 alunos!
+                </p>
+            </div>
+
+            <!-- Instructor -->
+            <div class="grid md:grid-cols-2 gap-10 items-center">
+                <div class="order-2 md:order-1">
+                    <h2 class="text-2xl md:text-3xl font-bold mb-6 text-brand-gold uppercase">APRENDA COM UM PROFESSOR
+                        PREMIADO INTERNACIONALMENTE!</h2>
+                    <p class="text-gray-300 mb-6 leading-relaxed">
+                        Arthur Endo é compositor, arranjador e violonista premiado em competições nacionais e
+                        internacionais, sendo
+                        hoje um dos representantes da nova geração do violão brasileiro. Seu último disco foi produzido
+                        por Yamandu
+                        Costa, um dos maiores violonistas do Brasil e do mundo.
+                    </p>
+
+                    <div class="mb-4">
+                        <p class="font-bold text-white mb-2 flex items-center gap-2"><span
+                                class="material-icons text-brand-orange">emoji_events</span> PREMIAÇÕES:</p>
+                        <ul class="list-disc list-inside text-gray-400 space-y-1 ml-2">
+                            <li>USG Internacional</li>
+                            <li>Imagine Brasil 2017</li>
+                            <li>Melhores da Música Brasileira 2019 (Embrulhador)</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <p class="font-bold text-white mb-2 flex items-center gap-2"><span
+                                class="material-icons text-brand-orange">school</span> FORMAÇÃO:</p>
+                        <ul class="list-disc list-inside text-gray-400 space-y-1 ml-2">
+                            <li>Conservatório EMESP/ULM - Universidade Livre de Música</li>
+                            <li>Bacharelado em Violão na UNICAMP, sob orientação de Ulisses Rocha</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="order-1 md:order-2">
+                    <div class="relative">
+                        <img src="img/foto-do-arthur-endo-com-amigo.png" alt="Foto do Arthur Endo com amigo"
+                            class="rounded-xl shadow-2xl w-full border border-gray-700">
+                        <div
+                            class="absolute -bottom-6 -right-6 bg-brand-dark p-4 rounded-lg border border-gray-700 shadow-xl hidden md:block">
+                            <span class="text-brand-orange font-bold">Arthur Endo</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Video Instructor -->
+            <div class="w-full rounded-xl overflow-hidden shadow-2xl border border-gray-700 aspect-video">
+                <iframe class="w-full h-full" src="https://www.youtube.com/embed/368rAC1e7xw" frameborder="0"
+                    allowfullscreen></iframe>
+            </div>
+
+            <!-- Frustration & Inside Course -->
+            <div class="text-center space-y-8">
+                <div>
+                    <h2 class="text-3xl font-bold mb-4 text-white">NUNCA MAIS SE SINTA FRUSTRADO!</h2>
+                    <p class="text-lg text-gray-300 max-w-2xl mx-auto">O principal obstáculo para a evolução no violão é
+                        a falta de direcionamento. Com o Método Violão 100, você nunca mais ficará sem saber o que ou
+                        como estudar.</p>
+                </div>
+
+                <div>
+                    <h2 class="text-2xl font-bold mb-6 text-brand-gold">VEJA COMO É O CURSO POR DENTRO</h2>
+                    <div
+                        class="max-w-3xl mx-auto bg-black rounded-xl overflow-hidden shadow-2xl border border-gray-800 aspect-video">
+                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/9wtowob9KMU" frameborder="0"
+                            allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Offer Section -->
+    <section id="oferta" class="py-20 relative bg-black">
+        <!-- Background Glow -->
+        <div
+            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full max-w-4xl bg-brand-orange/10 blur-[100px] rounded-full pointer-events-none">
+        </div>
+
+        <div class="max-w-4xl mx-auto px-4 relative z-10">
+            <div
+                class="bg-gray-900/90 backdrop-blur-md rounded-3xl border border-orange-500/50 shadow-[0_0_50px_rgba(230,81,0,0.3)] overflow-hidden">
+                <div class="bg-gradient-to-r from-orange-700 to-red-700 p-4 text-center">
+                    <p class="text-white font-bold tracking-wider text-xl">OFERTA VITALÍCIA POR TEMPO LIMITADO!</p>
+                </div>
+
+                <div class="grid md:grid-cols-2">
+                    <div
+                        class="p-8 md:p-12 border-b md:border-b-0 md:border-r border-gray-700 flex flex-col justify-center">
+                        <h3 class="text-2xl font-bold text-white mb-2">Método Violão 100 - Completo</h3>
+                        <div class="inline-block bg-white text-black font-bold px-3 py-1 rounded text-sm mb-6 w-max">60%
+                            OFF</div>
+
+                        <p class="font-bold text-gray-400 mb-4 text-sm tracking-wide">INCLUI:</p>
+                        <ul class="space-y-3 text-gray-300">
+                            <li class="flex items-start gap-3"><span
+                                    class="material-icons text-green-500 text-xl">check_circle</span>
+                                <div><strong>100 Níveis Completos</strong><br><span class="text-sm text-gray-500">Do
+                                        básico ao avançado com estrutura clara.</span></div>
+                            </li>
+                            <li class="flex items-center gap-3"><span
+                                    class="material-icons text-green-500 text-xl">check_circle</span> 8 Apostilas de
+                                Revisão</li>
+                            <li class="flex items-center gap-3"><span
+                                    class="material-icons text-green-500 text-xl">check_circle</span> 10 Desafios</li>
+                            <li class="flex items-center gap-3"><span
+                                    class="material-icons text-green-500 text-xl">check_circle</span> Garantia de 7 Dias
+                            </li>
+                            <li class="flex items-center gap-3"><span
+                                    class="material-icons text-green-500 text-xl">check_circle</span> Guia de Escuta do
+                                Violão Brasileiro</li>
+                            <li class="flex items-center gap-3"><span
+                                    class="material-icons text-green-500 text-xl">check_circle</span> Ebook com 89
+                                Exercícios</li>
+                            <li class="flex items-center gap-3"><span
+                                    class="material-icons text-green-500 text-xl">check_circle</span> Acesso Vitalício
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="p-8 md:p-12 bg-gray-800/50 flex flex-col justify-center items-center text-center">
+                        <p class="text-gray-400 text-sm mb-2">Método Violão 100 Completo por apenas:</p>
+                        <p class="text-gray-500 line-through text-lg">De R$750,00</p>
+
+                        <div class="my-6">
+                            <p class="text-gray-300 text-xl">12x R$</p>
+                            <p class="text-6xl font-extrabold text-white leading-none">29<span
+                                    class="text-2xl">,90</span></p>
+                            <p class="text-brand-orange font-semibold mt-2">ou R$299,60 à vista</p>
+                        </div>
+
+                        <a href="https://go.hotmart.com/G103537414S?ap=a1c9"
+                            class="btn-cta w-full text-xl shadow-orange-500/20">GARANTIR ACESSO</a>
+
+                        <div class="flex items-center justify-center gap-4 mt-6 grayscale opacity-60">
+                            <!-- Simple safe icons svgs or text -->
+                            <div class="flex flex-col items-center"><span
+                                    class="material-icons text-2xl">lock</span><span class="text-[10px]">Compra
+                                    Segura</span></div>
+                            <div class="flex flex-col items-center"><span
+                                    class="material-icons text-2xl">verified</span><span class="text-[10px]">Garantia 7
+                                    dias</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-20 bg-brand-dark">
+        <div class="max-w-3xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Perguntas frequentes</h2>
+
+            <div class="space-y-4">
+                <!-- FAQ Item 1 -->
+                <details class="bg-gray-800 rounded-lg p-4 cursor-pointer group">
+                    <summary
+                        class="font-bold text-lg flex justify-between items-center list-none select-none text-white">
+                        Preciso ter experiência prévia para começar?
+                        <span
+                            class="material-icons transform group-open:rotate-180 transition-transform text-brand-orange">expand_more</span>
+                    </summary>
+                    <div class="mt-4 text-gray-300 leading-relaxed">
+                        <p>Não é necessário ter experiência prévia. O curso foi desenvolvido para atender tanto
+                            iniciantes quanto
+                            pessoas que já tocam violão e desejam aprimorar suas habilidades. O conteúdo é estruturado
+                            de forma
+                            progressiva, permitindo que você avance no seu próprio ritmo.</p>
+                    </div>
+                </details>
+
+                <!-- FAQ Item 2 -->
+                <details class="bg-gray-800 rounded-lg p-4 cursor-pointer group">
+                    <summary
+                        class="font-bold text-lg flex justify-between items-center list-none select-none text-white">
+                        Tenho pouco tempo. Adianta fazer o curso?
+                        <span
+                            class="material-icons transform group-open:rotate-180 transition-transform text-brand-orange">expand_more</span>
+                    </summary>
+                    <div class="mt-4 text-gray-300 leading-relaxed">
+                        <p>Sim! O curso é totalmente flexível e você pode estudar no seu próprio ritmo. As aulas são
+                            gravadas e ficam
+                            disponíveis 24h por dia. Mesmo com 15-30 minutos diários, você conseguirá progredir
+                            consistente seguindo
+                            nossa metodologia.</p>
+                    </div>
+                </details>
+
+                <!-- FAQ Item 3 -->
+                <details class="bg-gray-800 rounded-lg p-4 cursor-pointer group">
+                    <summary
+                        class="font-bold text-lg flex justify-between items-center list-none select-none text-white">
+                        É possível pagar no pix?
+                        <span
+                            class="material-icons transform group-open:rotate-180 transition-transform text-brand-orange">expand_more</span>
+                    </summary>
+                    <div class="mt-4 text-gray-300 leading-relaxed">
+                        <p>Sim! Aceitamos pagamento via PIX, além de cartão de crédito, cartão de débito e boleto
+                            bancário.</p>
+                    </div>
+                </details>
+
+                <!-- FAQ Item 4 -->
+                <details class="bg-gray-800 rounded-lg p-4 cursor-pointer group">
+                    <summary
+                        class="font-bold text-lg flex justify-between items-center list-none select-none text-white">
+                        Como posso me inscrever?
+                        <span
+                            class="material-icons transform group-open:rotate-180 transition-transform text-brand-orange">expand_more</span>
+                    </summary>
+                    <div class="mt-4 text-gray-300 leading-relaxed">
+                        <p>Para se inscrever, basta clicar no botão 'GARANTIR AGORA' em nossa página e seguir o processo
+                            de pagamento.
+                            Após a confirmação, você receberá acesso imediato a todo o conteúdo do curso.</p>
+                    </div>
+                </details>
+
+                <!-- FAQ Item 5 -->
+                <details class="bg-gray-800 rounded-lg p-4 cursor-pointer group">
+                    <summary
+                        class="font-bold text-lg flex justify-between items-center list-none select-none text-white">
+                        Preciso entender alguma coisa sobre música para aproveitar o curso?
+                        <span
+                            class="material-icons transform group-open:rotate-180 transition-transform text-brand-orange">expand_more</span>
+                    </summary>
+                    <div class="mt-4 text-gray-300 leading-relaxed">
+                        <p>Não, o curso foi desenvolvido para iniciantes e ensina desde os conceitos mais básicos até
+                            técnicas avançadas
+                            de forma progressiva e didática.</p>
+                    </div>
+                </details>
+
+                <!-- FAQ Item 6 -->
+                <details class="bg-gray-800 rounded-lg p-4 cursor-pointer group">
+                    <summary
+                        class="font-bold text-lg flex justify-between items-center list-none select-none text-white">
+                        Quais os dias das aulas?
+                        <span
+                            class="material-icons transform group-open:rotate-180 transition-transform text-brand-orange">expand_more</span>
+                    </summary>
+                    <div class="mt-4 text-gray-300 leading-relaxed">
+                        <p>As aulas são gravadas e você pode assistir quando quiser, 24 horas por dia, 7 dias por
+                            semana. Você tem total
+                            flexibilidade para estudar nos horários que forem mais convenientes para você.</p>
+                    </div>
+                </details>
+            </div>
+
+            <!-- Trust Badges Footer -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16 text-center opacity-70">
+                <div class="flex flex-col items-center">
+                    <span class="material-icons text-4xl mb-2 text-brand-gold">verified_user</span>
+                    <p class="font-bold text-sm">Garantia de 7 Dias</p>
+                    <p class="text-xs text-gray-500">Devolução do dinheiro garantida</p>
+                </div>
+                <div class="flex flex-col items-center">
+                    <span class="material-icons text-4xl mb-2 text-brand-gold">lock</span>
+                    <p class="font-bold text-sm">Site Seguro</p>
+                    <p class="text-xs text-gray-500">Criptografia SSL de 256 bits</p>
+                </div>
+                <div class="flex flex-col items-center">
+                    <span class="material-icons text-4xl mb-2 text-brand-gold">all_inclusive</span>
+                    <p class="font-bold text-sm">Acesso Vitalício</p>
+                </div>
+                <div class="flex flex-col items-center">
+                    <span class="material-icons text-4xl mb-2 text-brand-gold">support_agent</span>
+                    <p class="font-bold text-sm">Suporte Completo</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-black py-8 border-t border-gray-900">
+        <div class="text-center px-4">
+            <h2 class="text-xl font-bold text-white mb-4">FICOU COM ALGUMA DÚVIDA OU PRECISA DE AJUDA?</h2>
+            <!-- Typically would be a whatsapp link or email here, but text was just the H2 in original -->
+            <p class="text-gray-500 text-sm">© 2025 Musicando.club. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
