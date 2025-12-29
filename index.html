@@ -37,6 +37,8 @@
         rel="stylesheet">
     <!-- Material Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
     <style>
         body {
@@ -83,6 +85,17 @@
             background: rgba(255, 255, 255, 0.03);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* Swiper Customization */
+        .swiper-pagination-bullet {
+            background: #fff;
+            opacity: 0.5;
+        }
+
+        .swiper-pagination-bullet-active {
+            background: #e65100;
+            opacity: 1;
         }
     </style>
 </head>
@@ -176,9 +189,9 @@
         </div>
     </section>
 
-    <!-- Topics Carousel/Grid Section -->
-    <section id="assuntos" class="py-20 bg-brand-gray">
-        <div class="max-w-6xl mx-auto px-4">
+    <!-- Topics Carousel Section -->
+    <section id="assuntos" class="py-20 bg-brand-gray overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4">
             <div class="text-center mb-12">
                 <h2 class="text-3xl md:text-3xl font-bold mb-4 text-brand-gold">QUER DAR UMA ESPIADA NOS ASSUNTOS QUE
                     VOCÊ VAI ENCONTRAR DENTRO DOS 100 NÍVEIS?</h2>
@@ -186,57 +199,72 @@
                 </h3>
             </div>
 
-            <!-- Grid Layout for Topics (More pro than a simple scroll for desktop) -->
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
-                <!-- imgs -->
-                <div class="group relative overflow-hidden rounded-lg border border-gray-700">
-                    <img src="img/nivel-03-leitura-de-tablaturas.png" alt="Nível 3 - Leitura de tablaturas"
-                        class="w-full h-auto transform group-hover:scale-110 transition duration-500">
+            <!-- Swiper Carousel -->
+            <div class="swiper mySwiperAssuntos py-8">
+                <div class="swiper-wrapper">
+                    <!-- Slides -->
+                    <div class="swiper-slide">
+                        <div class="group relative overflow-hidden rounded-lg border border-gray-700">
+                            <img src="img/nivel-03-leitura-de-tablaturas.png" alt="Nível 3" class="w-full h-auto">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="group relative overflow-hidden rounded-lg border border-gray-700">
+                            <img src="img/nivel-04-principios-da-mao-direita.png" alt="Nível 4" class="w-full h-auto">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="group relative overflow-hidden rounded-lg border border-gray-700">
+                            <img src="img/nivel-06-distancia-entre-os-trastes.png" alt="Nível 6" class="w-full h-auto">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="group relative overflow-hidden rounded-lg border border-gray-700">
+                            <img src="img/nivel-08-tudo-sobre-unhas.png" alt="Nível 8" class="w-full h-auto">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="group relative overflow-hidden rounded-lg border border-gray-700">
+                            <img src="img/nivel-29-vibrato.png" alt="Nível 29" class="w-full h-auto">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="group relative overflow-hidden rounded-lg border border-gray-700">
+                            <img src="img/nivel-32-legato.png" alt="Nível 32" class="w-full h-auto">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="group relative overflow-hidden rounded-lg border border-gray-700">
+                            <img src="img/nivel-33-abertura-dos-dedos.png" alt="Nível 33" class="w-full h-auto">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="group relative overflow-hidden rounded-lg border border-gray-700">
+                            <img src="img/nivel-35-dedilhado.png" alt="Nível 35" class="w-full h-auto">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="group relative overflow-hidden rounded-lg border border-gray-700">
+                            <img src="img/nivel-43-aperfeicoamento-do-dedilhado.png" alt="Nível 43"
+                                class="w-full h-auto">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="group relative overflow-hidden rounded-lg border border-gray-700">
+                            <img src="img/nivel-59-dedilhado.png" alt="Nível 59" class="w-full h-auto">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="group relative overflow-hidden rounded-lg border border-gray-700">
+                            <img src="img/nivel-99-percussao-no-violao.png" alt="Nível 99" class="w-full h-auto">
+                        </div>
+                    </div>
                 </div>
-                <div class="group relative overflow-hidden rounded-lg border border-gray-700">
-                    <img src="img/nivel-04-principios-da-mao-direita.png" alt="Nível 4 - Principios da mão direita"
-                        class="w-full h-auto transform group-hover:scale-110 transition duration-500">
-                </div>
-                <div class="group relative overflow-hidden rounded-lg border border-gray-700">
-                    <img src="img/nivel-06-distancia-entre-os-trastes.png" alt="Nível 6 - Distância entre os trastes"
-                        class="w-full h-auto transform group-hover:scale-110 transition duration-500">
-                </div>
-                <div class="group relative overflow-hidden rounded-lg border border-gray-700">
-                    <img src="img/nivel-08-tudo-sobre-unhas.png" alt="Nível 8 - Tudo sobre unhas"
-                        class="w-full h-auto transform group-hover:scale-110 transition duration-500">
-                </div>
-                <div class="group relative overflow-hidden rounded-lg border border-gray-700">
-                    <img src="img/nivel-29-vibrato.png" alt="Nível 29 - Vibrato"
-                        class="w-full h-auto transform group-hover:scale-110 transition duration-500">
-                </div>
-                <div class="group relative overflow-hidden rounded-lg border border-gray-700">
-                    <img src="img/nivel-32-legato.png" alt="Nível 32 - Legato"
-                        class="w-full h-auto transform group-hover:scale-110 transition duration-500">
-                </div>
-                <div class="group relative overflow-hidden rounded-lg border border-gray-700">
-                    <img src="img/nivel-33-abertura-dos-dedos.png" alt="Nível 33 - Abertura dos dedos"
-                        class="w-full h-auto transform group-hover:scale-110 transition duration-500">
-                </div>
-                <div class="group relative overflow-hidden rounded-lg border border-gray-700">
-                    <img src="img/nivel-35-dedilhado.png" alt="Nível 35 - Dedilhado"
-                        class="w-full h-auto transform group-hover:scale-110 transition duration-500">
-                </div>
-                <div class="group relative overflow-hidden rounded-lg border border-gray-700">
-                    <img src="img/nivel-43-aperfeicoamento-do-dedilhado.png"
-                        alt="Nível 43 - Aperfeiçoamento do dedilhado"
-                        class="w-full h-auto transform group-hover:scale-110 transition duration-500">
-                </div>
-                <div class="group relative overflow-hidden rounded-lg border border-gray-700">
-                    <img src="img/nivel-59-dedilhado.png" alt="Nível 59 - Dedilhado"
-                        class="w-full h-auto transform group-hover:scale-110 transition duration-500">
-                </div>
-                <div class="group relative overflow-hidden rounded-lg border border-gray-700">
-                    <img src="img/nivel-99-percussao-no-violao.png" alt="Nível 99 - Percussão no violão"
-                        class="w-full h-auto transform group-hover:scale-110 transition duration-500">
-                </div>
+                <!-- Optional Pagination -->
+                <div class="swiper-pagination mt-6"></div>
             </div>
 
-            <div class="text-center mt-12">
+            <div class="text-center mt-8">
                 <a href="https://go.hotmart.com/G103537414S?ap=a1c9" class="btn-cta">GARANTIR ACESSO</a>
             </div>
         </div>
@@ -277,113 +305,145 @@
                 </div>
             </div>
 
-            <!-- Text Testimonials Grid -->
-            <div class="space-y-4">
-                <h3 class="text-2xl font-bold text-center text-brand-gold">Depoimentos</h3>
+            <!-- Text Testimonials Carousel -->
+            <div class="relative">
+                <h3 class="text-2xl font-bold text-center text-brand-gold mb-2">Depoimentos</h3>
                 <h4 class="text-center text-gray-400 mb-8">O que disseram recentemente..</h4>
 
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <!-- T1 -->
-                    <div
-                        class="bg-gray-800 p-6 rounded-xl border border-gray-700 hover:border-brand-orange/50 transition duration-300">
-                        <div class="flex items-center mb-4 text-brand-orange">
-                            <span class="material-icons">star</span><span class="material-icons">star</span><span
-                                class="material-icons">star</span><span class="material-icons">star</span><span
-                                class="material-icons">star</span>
+                <div class="swiper mySwiperDepoimentos pb-12">
+                    <div class="swiper-wrapper">
+                        <!-- T1 -->
+                        <div class="swiper-slide h-auto">
+                            <div
+                                class="bg-gray-800 p-6 rounded-xl border border-gray-700 h-full flex flex-col hover:border-brand-orange/50 transition duration-300">
+                                <div class="flex items-center mb-4 text-brand-orange">
+                                    <span class="material-icons">star</span><span
+                                        class="material-icons">star</span><span class="material-icons">star</span><span
+                                        class="material-icons">star</span><span class="material-icons">star</span>
+                                </div>
+                                <p class="text-gray-300 text-sm mb-4 flex-grow">"Cara, eu comprei o curso e, no mesmo
+                                    dia, aprendi a
+                                    dedilhar! Já fazia anos que eu sonhava em aprender a tocar violão, mas não sentia
+                                    confiança
+                                    suficiente para isso. Quando vi sua propaganda no Instagram, algo me fez seguir em
+                                    frente.
+                                    Comprei um violão semana passada e seu curso logo em seguida. Estou gostando muito!
+                                    Aprendi
+                                    a ler tablatura, algo que antes parecia tão difícil. Obrigado, obrigado mesmo!"</p>
+                                <div class="border-t border-gray-700 pt-4">
+                                    <p class="font-bold text-white">Pedro Santos</p>
+                                    <p class="text-xs text-gray-500">Aluno</p>
+                                </div>
+                            </div>
                         </div>
-                        <p class="text-gray-300 text-sm mb-4">"Cara, eu comprei o curso e, no mesmo dia, aprendi a
-                            dedilhar! Já fazia anos que eu sonhava em aprender a tocar violão, mas não sentia confiança
-                            suficiente para isso. Quando vi sua propaganda no Instagram, algo me fez seguir em frente.
-                            Comprei um violão semana passada e seu curso logo em seguida. Estou gostando muito! Aprendi
-                            a ler tablatura, algo que antes parecia tão difícil. Obrigado, obrigado mesmo!"</p>
-                        <div class="border-t border-gray-700 pt-4">
-                            <p class="font-bold text-white">Pedro Santos</p>
-                            <p class="text-xs text-gray-500">Aluno</p>
+                        <!-- T2 -->
+                        <div class="swiper-slide h-auto">
+                            <div
+                                class="bg-gray-800 p-6 rounded-xl border border-gray-700 h-full flex flex-col hover:border-brand-orange/50 transition duration-300">
+                                <div class="flex items-center mb-4 text-brand-orange">
+                                    <span class="material-icons">star</span><span
+                                        class="material-icons">star</span><span class="material-icons">star</span><span
+                                        class="material-icons">star</span><span class="material-icons">star</span>
+                                </div>
+                                <p class="text-gray-300 text-sm mb-4 flex-grow">"Obrigado pelas aulas, professor! Muita
+                                    gratidão pelo
+                                    curso!"</p>
+                                <div class="border-t border-gray-700 pt-4">
+                                    <p class="font-bold text-white">Ricardo Oliveira</p>
+                                    <p class="text-xs text-gray-500">Aluno</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- T3 -->
+                        <div class="swiper-slide h-auto">
+                            <div
+                                class="bg-gray-800 p-6 rounded-xl border border-gray-700 h-full flex flex-col hover:border-brand-orange/50 transition duration-300">
+                                <div class="flex items-center mb-4 text-brand-orange">
+                                    <span class="material-icons">star</span><span
+                                        class="material-icons">star</span><span class="material-icons">star</span><span
+                                        class="material-icons">star</span><span class="material-icons">star</span>
+                                </div>
+                                <p class="text-gray-300 text-sm mb-4 flex-grow">"Oi! Queria dizer que me inscrevi no seu
+                                    curso Violão 100
+                                    e estou encantado com a qualidade das aulas! Muito obrigado por oferecer um conteúdo
+                                    tão
+                                    bom!"</p>
+                                <div class="border-t border-gray-700 pt-4">
+                                    <p class="font-bold text-white">Lucas Mendes</p>
+                                    <p class="text-xs text-gray-500">Aluno</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- T4 -->
+                        <div class="swiper-slide h-auto">
+                            <div
+                                class="bg-gray-800 p-6 rounded-xl border border-gray-700 h-full flex flex-col hover:border-brand-orange/50 transition duration-300">
+                                <div class="flex items-center mb-4 text-brand-orange">
+                                    <span class="material-icons">star</span><span
+                                        class="material-icons">star</span><span class="material-icons">star</span><span
+                                        class="material-icons">star</span><span class="material-icons">star</span>
+                                </div>
+                                <p class="text-gray-300 text-sm mb-4 flex-grow">"Estou fazendo o seu curso e é a
+                                    primeira vez que me sinto
+                                    avançando no violão. Sou cantora, mas sempre tive muita dificuldade em tocar.
+                                    Encontrar seu
+                                    curso e sua metodologia me despertaram para, finalmente, aprender. Obrigada por
+                                    fazer um
+                                    curso tão incrível! Estou no nível 34!"</p>
+                                <div class="border-t border-gray-700 pt-4">
+                                    <p class="font-bold text-white">Marina Silva</p>
+                                    <p class="text-xs text-gray-500">cantora</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- T5 -->
+                        <div class="swiper-slide h-auto">
+                            <div
+                                class="bg-gray-800 p-6 rounded-xl border border-gray-700 h-full flex flex-col hover:border-brand-orange/50 transition duration-300">
+                                <div class="flex items-center mb-4 text-brand-orange">
+                                    <span class="material-icons">star</span><span
+                                        class="material-icons">star</span><span class="material-icons">star</span><span
+                                        class="material-icons">star</span><span class="material-icons">star</span>
+                                </div>
+                                <p class="text-gray-300 text-sm mb-4 flex-grow">"A qualidade deste curso está
+                                    simplesmente incrível. Muito
+                                    difícil encontrar algo semelhante. Parabéns! Iniciei ontem e estou super empolgada!
+                                    Você é
+                                    um verdadeiro mestre do violão e da música! Meu sonho de infância de tocar violão
+                                    avançado
+                                    foi restaurado com sucesso! Obrigada por isso!"</p>
+                                <div class="border-t border-gray-700 pt-4">
+                                    <p class="font-bold text-white">Carolina Lima</p>
+                                    <p class="text-xs text-gray-500">Aluna</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- T6 -->
+                        <div class="swiper-slide h-auto">
+                            <div
+                                class="bg-gray-800 p-6 rounded-xl border border-gray-700 h-full flex flex-col hover:border-brand-orange/50 transition duration-300">
+                                <div class="flex items-center mb-4 text-brand-orange">
+                                    <span class="material-icons">star</span><span
+                                        class="material-icons">star</span><span class="material-icons">star</span><span
+                                        class="material-icons">star</span><span class="material-icons">star</span>
+                                </div>
+                                <p class="text-gray-300 text-sm mb-4 flex-grow">"Estou fazendo o curso e é excelente!
+                                    Após muitos anos
+                                    estagnado, perdido e desanimado, finalmente estou evoluindo e de forma rápida (mas
+                                    ligada à
+                                    dedicação). O que Arthur Endo faz é organizar e sistematizar o estudo para que a
+                                    gente
+                                    assimile e aprimore cada passo, criando uma cadeia evolutiva da técnica. Isso motiva
+                                    muito!
+                                    Arthur Endo, meu professor. Recomendo!"</p>
+                                <div class="border-t border-gray-700 pt-4">
+                                    <p class="font-bold text-white">Fernando Costa</p>
+                                    <p class="text-xs text-gray-500">Aluno</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <!-- T2 -->
-                    <div
-                        class="bg-gray-800 p-6 rounded-xl border border-gray-700 hover:border-brand-orange/50 transition duration-300">
-                        <div class="flex items-center mb-4 text-brand-orange">
-                            <span class="material-icons">star</span><span class="material-icons">star</span><span
-                                class="material-icons">star</span><span class="material-icons">star</span><span
-                                class="material-icons">star</span>
-                        </div>
-                        <p class="text-gray-300 text-sm mb-4">"Obrigado pelas aulas, professor! Muita gratidão pelo
-                            curso!"</p>
-                        <div class="border-t border-gray-700 pt-4">
-                            <p class="font-bold text-white">Ricardo Oliveira</p>
-                            <p class="text-xs text-gray-500">Aluno</p>
-                        </div>
-                    </div>
-                    <!-- T3 -->
-                    <div
-                        class="bg-gray-800 p-6 rounded-xl border border-gray-700 hover:border-brand-orange/50 transition duration-300">
-                        <div class="flex items-center mb-4 text-brand-orange">
-                            <span class="material-icons">star</span><span class="material-icons">star</span><span
-                                class="material-icons">star</span><span class="material-icons">star</span><span
-                                class="material-icons">star</span>
-                        </div>
-                        <p class="text-gray-300 text-sm mb-4">"Oi! Queria dizer que me inscrevi no seu curso Violão 100
-                            e estou encantado com a qualidade das aulas! Muito obrigado por oferecer um conteúdo tão
-                            bom!"</p>
-                        <div class="border-t border-gray-700 pt-4">
-                            <p class="font-bold text-white">Lucas Mendes</p>
-                            <p class="text-xs text-gray-500">Aluno</p>
-                        </div>
-                    </div>
-                    <!-- T4 -->
-                    <div
-                        class="bg-gray-800 p-6 rounded-xl border border-gray-700 hover:border-brand-orange/50 transition duration-300">
-                        <div class="flex items-center mb-4 text-brand-orange">
-                            <span class="material-icons">star</span><span class="material-icons">star</span><span
-                                class="material-icons">star</span><span class="material-icons">star</span><span
-                                class="material-icons">star</span>
-                        </div>
-                        <p class="text-gray-300 text-sm mb-4">"Estou fazendo o seu curso e é a primeira vez que me sinto
-                            avançando no violão. Sou cantora, mas sempre tive muita dificuldade em tocar. Encontrar seu
-                            curso e sua metodologia me despertaram para, finalmente, aprender. Obrigada por fazer um
-                            curso tão incrível! Estou no nível 34!"</p>
-                        <div class="border-t border-gray-700 pt-4">
-                            <p class="font-bold text-white">Marina Silva</p>
-                            <p class="text-xs text-gray-500">cantora</p>
-                        </div>
-                    </div>
-                    <!-- T5 -->
-                    <div
-                        class="bg-gray-800 p-6 rounded-xl border border-gray-700 hover:border-brand-orange/50 transition duration-300">
-                        <div class="flex items-center mb-4 text-brand-orange">
-                            <span class="material-icons">star</span><span class="material-icons">star</span><span
-                                class="material-icons">star</span><span class="material-icons">star</span><span
-                                class="material-icons">star</span>
-                        </div>
-                        <p class="text-gray-300 text-sm mb-4">"A qualidade deste curso está simplesmente incrível. Muito
-                            difícil encontrar algo semelhante. Parabéns! Iniciei ontem e estou super empolgada! Você é
-                            um verdadeiro mestre do violão e da música! Meu sonho de infância de tocar violão avançado
-                            foi restaurado com sucesso! Obrigada por isso!"</p>
-                        <div class="border-t border-gray-700 pt-4">
-                            <p class="font-bold text-white">Carolina Lima</p>
-                            <p class="text-xs text-gray-500">Aluna</p>
-                        </div>
-                    </div>
-                    <!-- T6 -->
-                    <div
-                        class="bg-gray-800 p-6 rounded-xl border border-gray-700 hover:border-brand-orange/50 transition duration-300">
-                        <div class="flex items-center mb-4 text-brand-orange">
-                            <span class="material-icons">star</span><span class="material-icons">star</span><span
-                                class="material-icons">star</span><span class="material-icons">star</span><span
-                                class="material-icons">star</span>
-                        </div>
-                        <p class="text-gray-300 text-sm mb-4">"Estou fazendo o curso e é excelente! Após muitos anos
-                            estagnado, perdido e desanimado, finalmente estou evoluindo e de forma rápida (mas ligada à
-                            dedicação). O que Arthur Endo faz é organizar e sistematizar o estudo para que a gente
-                            assimile e aprimore cada passo, criando uma cadeia evolutiva da técnica. Isso motiva muito!
-                            Arthur Endo, meu professor. Recomendo!"</p>
-                        <div class="border-t border-gray-700 pt-4">
-                            <p class="font-bold text-white">Fernando Costa</p>
-                            <p class="text-xs text-gray-500">Aluno</p>
-                        </div>
-                    </div>
+                    <div class="swiper-pagination"></div>
                 </div>
             </div>
         </div>
@@ -684,6 +744,62 @@
             <p class="text-gray-500 text-sm">© 2025 Musicando.club. Todos os direitos reservados.</p>
         </div>
     </footer>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+        // Carousel for Topics (Assuntos)
+        var swiperAssuntos = new Swiper(".mySwiperAssuntos", {
+            slidesPerView: 2,
+            spaceBetween: 20,
+            loop: true,
+            autoplay: {
+                delay: 2000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            breakpoints: {
+                640: {
+                    slidesPerView: 3,
+                    spaceBetween: 20,
+                },
+                768: {
+                    slidesPerView: 4,
+                    spaceBetween: 20,
+                },
+                1024: {
+                    slidesPerView: 5,
+                    spaceBetween: 20,
+                },
+            },
+        });
+
+        // Carousel for Testimonials (Text only)
+        var swiperDepoimentos = new Swiper(".mySwiperDepoimentos", {
+            slidesPerView: 1,
+            spaceBetween: 30,
+            autoHeight: true,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            breakpoints: {
+                768: {
+                    slidesPerView: 2,
+                    spaceBetween: 30,
+                },
+                1024: {
+                    slidesPerView: 3,
+                    spaceBetween: 30,
+                },
+            },
+        });
+    </script>
 
 </body>
 
