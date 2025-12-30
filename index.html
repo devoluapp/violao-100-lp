@@ -97,6 +97,59 @@
             background: #e65100;
             opacity: 1;
         }
+
+
+    /* Estilos específicos para video vertical hero */
+        .hero-video-wrap {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding: 1rem;
+          box-sizing: border-box;
+          position: relative; /* necessário para posicionar o botão */
+        }
+
+        .hero-video {
+          max-height: 90vh;
+          max-width: 100%;
+          width: auto;
+          height: auto;
+          border-radius: 12px;
+          box-shadow: 0 6px 24px rgba(0,0,0,0.18);
+          background: #000;
+          object-fit: cover;
+        }
+
+        /* Botão custom de mute/unmute */
+        .mute-btn {
+          position: absolute;
+          right: 1rem;
+          bottom: 1rem;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          width: 44px;
+          height: 44px;
+          border-radius: 9999px;
+          background: rgba(0,0,0,0.6);
+          color: #fff;
+          border: 1px solid rgba(255,255,255,0.08);
+          backdrop-filter: blur(4px);
+          cursor: pointer;
+          transition: transform .12s ease, opacity .12s ease;
+          z-index: 20;
+        }
+
+        .mute-btn:hover { transform: translateY(-3px); }
+        .mute-btn:focus { outline: 3px solid rgba(230,81,0,0.35); }
+
+        .mute-btn svg { width: 20px; height: 20px; fill: currentColor; }
+
+        @media (min-width: 768px) {
+          .mute-btn { right: 2rem; bottom: 2rem; width:48px; height:48px; }
+          .hero-video { max-height: 80vh; }
+          .hero-video-wrap { padding: 2rem; }
+        }
     </style>
 </head>
 
@@ -124,15 +177,36 @@
             <!-- Video Container -->
             <div class="relative group">
 
-                <div
-                    class="relative bg-black rounded-xl overflow-hidden shadow-2xl aspect-video border border-gray-800">
-                    <iframe class="w-full h-full"
-                        src="https://www.youtube.com/embed/M-sn8wvma3M?autoplay=0&controls=0&rel=0&showinfo=0&modestbranding=1&loop=1&playlist=M-sn8wvma3M"
-                        title="Vídeo de Apresentação" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;"
-                        allowfullscreen>
-                    </iframe>
-                </div>
+                <!-- Substitua o primeiro vídeo por este container vertical -->
+  <div class="hero-video-wrap" aria-label="Vídeo principal">
+    <div class="hero-video-wrap" aria-label="Vídeo principal">
+  <video id="hero-vertical-video"
+         class="hero-video"
+         src="videos/video-hero.mp4"
+         autoplay
+         muted
+         playsinline
+         preload="auto"
+         loop
+         controls
+         controlsList="nodownload nofullscreen noremoteplayback"
+         tabindex="-1"
+         aria-label="Vídeo principal do curso">
+    Seu navegador não suporta a tag de vídeo.
+  </video>
+
+  <!-- Botão custom para desmutar/mutar -->
+  <button id="video-unmute-btn" class="mute-btn" aria-pressed="false" aria-label="Desmutar vídeo" title="Desmutar">
+    <!-- ícone quando está mutado (padrão) -->
+    <svg class="icon-muted" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M16.5 12c0-1.77-.77-3.36-1.99-4.47l1.42-1.42C17.73 7.98 18.5 9.9 18.5 12s-.77 4.02-2.57 5.89l-1.42-1.42C15.73 15.36 16.5 13.77 16.5 12zM3 9v6h4l5 5V4L7 9H3z"/>
+    </svg>
+    <!-- ícone quando estiver desmutado -->
+    <svg class="icon-unmuted hidden" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M3 9v6h4l5 5V4L7 9H3zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.93 7-4.63 7-8.77s-2.99-7.84-7-8.77z"/>
+    </svg>
+  </button>
+</div>
                 <p class="hidden text-lg text-gray-300 font-light leading-relaxed pt-4">
                     Inscreva-se agora e tenha acesso a aulas exclusivas, projetadas para acelerar seu progresso e
                     surpreender a todos com sua evolução!
@@ -800,7 +874,44 @@
             },
         });
     </script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+  const v = document.getElementById('hero-vertical-video');
+  const btn = document.getElementById('video-unmute-btn');
+  if (!v || !btn) return;
 
+  const iconMuted = btn.querySelector('.icon-muted');
+  const iconUnmuted = btn.querySelector('.icon-unmuted');
+
+  function updateButton() {
+    const muted = !!v.muted;
+    btn.setAttribute('aria-pressed', (!muted).toString());
+    if (muted) {
+      iconMuted.classList.remove('hidden');
+      iconUnmuted.classList.add('hidden');
+      btn.setAttribute('title', 'Desmutar');
+      btn.setAttribute('aria-label', 'Desmutar vídeo');
+    } else {
+      iconMuted.classList.add('hidden');
+      iconUnmuted.classList.remove('hidden');
+      btn.setAttribute('title', 'Mutar');
+      btn.setAttribute('aria-label', 'Mutar vídeo');
+    }
+  }
+
+  // Clique alterna mute e tenta tocar quando for desmutado
+  btn.addEventListener('click', function (e) {
+    v.muted = !v.muted;
+    if (!v.muted) {
+      v.play().catch(()=>{ /* autoplay pode ser bloqueado, sem problema */ });
+    }
+    updateButton();
+  });
+
+  // Inicializa o estado do botão
+  updateButton();
+});
+  </script>
 </body>
 
 </html>
