@@ -110,15 +110,15 @@
         }
 
         .hero-video {
-          max-height: 90vh;
-          max-width: 100%;
-          width: auto;
-          height: auto;
-          border-radius: 12px;
-          box-shadow: 0 6px 24px rgba(0,0,0,0.18);
-          background: #000;
-          object-fit: cover;
-        }
+  width: 100%;
+  max-width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 12px;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.18);
+  background: #000;
+  object-fit: cover;
+  display: block;
+}
 
         /* Botão custom de mute/unmute */
         .mute-btn {
@@ -179,7 +179,6 @@
 
                 <!-- Substitua o primeiro vídeo por este container vertical -->
   <div class="hero-video-wrap" aria-label="Vídeo principal">
-    <div class="hero-video-wrap" aria-label="Vídeo principal">
   <video id="hero-vertical-video"
          class="hero-video"
          src="videos/video-hero.mp4"
@@ -190,21 +189,14 @@
          loop
          controls
          controlsList="nodownload nofullscreen noremoteplayback"
-         tabindex="-1"
+         tabindex="0"
          aria-label="Vídeo principal do curso">
     Seu navegador não suporta a tag de vídeo.
   </video>
 
-  <!-- Botão custom para desmutar/mutar -->
   <button id="video-unmute-btn" class="mute-btn" aria-pressed="false" aria-label="Desmutar vídeo" title="Desmutar">
-    <!-- ícone quando está mutado (padrão) -->
-    <svg class="icon-muted" viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M16.5 12c0-1.77-.77-3.36-1.99-4.47l1.42-1.42C17.73 7.98 18.5 9.9 18.5 12s-.77 4.02-2.57 5.89l-1.42-1.42C15.73 15.36 16.5 13.77 16.5 12zM3 9v6h4l5 5V4L7 9H3z"/>
-    </svg>
-    <!-- ícone quando estiver desmutado -->
-    <svg class="icon-unmuted hidden" viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M3 9v6h4l5 5V4L7 9H3zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.93 7-4.63 7-8.77s-2.99-7.84-7-8.77z"/>
-    </svg>
+    <svg class="icon-muted" viewBox="0 0 24 24" aria-hidden="true"><path d="M16.5 12c0-1.77-.77-3.36-1.99-4.47l1.42-1.42C17.73 7.98 18.5 9.9 18.5 12s-.77 4.02-2.57 5.89l-1.42-1.42C15.73 15.36 16.5 13.77 16.5 12zM3 9v6h4l5 5V4L7 9H3z"/></svg>
+    <svg class="icon-unmuted hidden" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9v6h4l5 5V4L7 9H3zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.93 7-4.63 7-8.77s-2.99-7.84-7-8.77z"/></svg>
   </button>
 </div>
                 <p class="hidden text-lg text-gray-300 font-light leading-relaxed pt-4">
