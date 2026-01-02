@@ -1,43 +1,55 @@
 (function () {
     /**
-     * Configuração do Rastreamento de Conversão do Google Ads
-     * Evento: Clique no botão de Checkout
-     * Funcionalidade Extra: Repassa parâmetros de URL (GCLID, UTMs) para o checkout
+     * Função auxiliar para disparar a conversão e redirecionar
+     * Esta é a lógica que antes estava solta no HTML
+     */
+    function reportConversion(url) {
+        const callback = function () {
+            if (typeof (url) != 'undefined') {
+                window.location = url;
+            }
+        };
+
+        // Verifica se a tag global do Google (gtag) está carregada
+        if (typeof gtag === 'function') {
+            gtag('event', 'conversion', {
+                'send_to': 'AW-17837722215/4m0JCKCMgdsbEOeU2LlC', // Seu ID/Label de conversão
+                'value': 1.0,
+                'currency': 'BRL',
+                'event_callback': callback
+            });
+            console.log('Evento de conversão disparado. Redirecionando para: ' + url);
+        } else {
+            // Se o Gtag falhar (ex: AdBlock), redireciona imediatamente para não perder a venda
+            console.warn('Gtag não detectado. Redirecionando sem evento.');
+            callback();
+        }
+
+        return false;
+    }
+
+    /**
+     * Configura ouvintes nos botões e gerencia parâmetros de URL (GCLID, UTM)
      */
     function setupConversionTracking() {
         const buttons = document.querySelectorAll('.btn-cta');
-
-        // 1. Captura os parâmetros da URL em que o usuário está agora (Ex: ?gclid=AbCd123...)
-        const currentParams = window.location.search;
+        const currentParams = window.location.search; // Captura ?gclid=...
 
         buttons.forEach(button => {
             button.addEventListener('click', (e) => {
+                // Impede navegação imediata para esperar o evento do Google
+                e.preventDefault();
+
                 let destinationUrl = button.getAttribute('href');
 
-                // 2. Se houver parâmetros na URL atual, adiciona-os ao link de destino
+                // Anexa parâmetros existentes na URL para o link de destino (preserva rastreamento)
                 if (currentParams) {
-                    // Verifica se o link de destino já tem parâmetros
                     const separator = destinationUrl.includes('?') ? '&' : '?';
-                    // Adiciona os parâmetros atuais (removendo o '?' inicial do currentParams para não duplicar se usar &)
                     destinationUrl += separator + currentParams.substring(1);
                 }
 
-                // 3. Verifica se a função de conversão do Google existe
-                if (typeof gtag_report_conversion === 'function') {
-                    e.preventDefault();
-
-                    // Chama a função do Google passando a NOVA url com o gclid anexado
-                    gtag_report_conversion(destinationUrl);
-
-                    console.log('Redirecionando com rastreamento para: ' + destinationUrl);
-                } else {
-                    console.warn('Função gtag_report_conversion falhou. Redirecionando manualmente.');
-                    // Fallback de segurança: se o script do Google falhar, vai para a URL com parametros mesmo assim, mas sem evento
-                    if (currentParams && !button.href.includes(currentParams.substring(1))) {
-                        window.location = destinationUrl;
-                        e.preventDefault();
-                    }
-                }
+                // Chama função que dispara evento -> espera callback -> redireciona
+                reportConversion(destinationUrl);
             });
         });
     }
