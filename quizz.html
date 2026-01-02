@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz - Método Violão 100</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #000;
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 800px;
+        }
+
+        .card {
+            background: linear-gradient(135deg, rgba(249, 115, 22, 0.2), rgba(234, 88, 12, 0.1));
+            border-radius: 24px;
+            padding: 48px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(249, 115, 22, 0.4);
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .icon-box {
+            display: inline-block;
+            padding: 16px;
+            background: linear-gradient(135deg, #f97316, #ea580c);
+            border-radius: 16px;
+            box-shadow: 0 0 30px rgba(249, 115, 22, 0.5);
+            margin-bottom: 24px;
+        }
+
+        .icon {
+            width: 64px;
+            height: 64px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            line-height: 1.2;
+            margin-bottom: 24px;
+        }
+
+        h2 {
+            font-size: 2rem;
+            font-weight: bold;
+            line-height: 1.3;
+            margin-bottom: 16px;
+        }
+
+        .highlight {
+            color: #fb923c;
+        }
+
+        .subtitle {
+            font-size: 1.25rem;
+            color: #fed6aa;
+            line-height: 1.6;
+            margin-bottom: 32px;
+        }
+
+        .feature-box {
+            background: rgba(67, 20, 7, 0.5);
+            border: 1px solid rgba(249, 115, 22, 0.4);
+            border-radius: 16px;
+            padding: 24px;
+            margin: 32px 0;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 12px;
+            color: #fed6aa;
+        }
+
+        .feature-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .check-icon {
+            width: 20px;
+            height: 20px;
+            flex-shrink: 0;
+            margin-top: 4px;
+        }
+
+        .btn {
+            width: 100%;
+            background: linear-gradient(to right, #f97316, #ea580c);
+            color: #000;
+            font-weight: bold;
+            font-size: 1.25rem;
+            padding: 20px 32px;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 10px 25px rgba(249, 115, 22, 0.5);
+        }
+
+        .btn:hover {
+            background: linear-gradient(to right, #fb923c, #f97316);
+            transform: scale(1.05);
+        }
+
+        .info-text {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-size: 0.875rem;
+            color: #fdba74;
+            margin-top: 16px;
+        }
+
+        .progress-wrap {
+            margin-bottom: 24px;
+        }
+
+        .progress-bar {
+            background: rgba(67, 20, 7, 0.5);
+            height: 12px;
+            border-radius: 999px;
+            overflow: hidden;
+            border: 1px solid rgba(124, 45, 18, 0.5);
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(to right, #f97316, #ea580c);
+            transition: width 0.5s;
+            box-shadow: 0 0 10px rgba(249, 115, 22, 0.5);
+            width: 0%;
+        }
+
+        .progress-text {
+            color: #fdba74;
+            font-size: 0.875rem;
+            text-align: center;
+            margin-top: 8px;
+            font-weight: 500;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-top: 32px;
+        }
+
+        .option-btn {
+            width: 100%;
+            background: rgba(67, 20, 7, 0.3);
+            border: 2px solid rgba(194, 65, 12, 0.5);
+            color: #fff;
+            font-size: 1.125rem;
+            padding: 24px;
+            border-radius: 12px;
+            cursor: pointer;
+            text-align: left;
+            transition: all 0.3s;
+        }
+
+        .option-btn:hover {
+            background: rgba(124, 45, 18, 0.5);
+            border-color: #f97316;
+            transform: scale(1.02);
+            box-shadow: 0 10px 25px rgba(249, 115, 22, 0.3);
+        }
+
+        .tip-box {
+            margin-top: 32px;
+            background: rgba(249, 115, 22, 0.2);
+            border: 1px solid rgba(251, 146, 60, 0.5);
+            border-radius: 12px;
+            padding: 16px;
+            text-align: center;
+            color: #fdba74;
+            font-size: 0.875rem;
+        }
+
+        .result-icon-box {
+            display: inline-block;
+            padding: 24px;
+            background: linear-gradient(135deg, #f97316, #ea580c);
+            border-radius: 50%;
+            box-shadow: 0 0 40px rgba(249, 115, 22, 0.5);
+            margin-bottom: 32px;
+        }
+
+        .result-icon {
+            width: 80px;
+            height: 80px;
+        }
+
+        .highlight-box {
+            background: linear-gradient(to right, rgba(124, 45, 18, 0.5), rgba(67, 20, 7, 0.5));
+            border: 2px solid #f97316;
+            border-radius: 16px;
+            padding: 32px;
+            margin: 32px 0;
+        }
+
+        .highlight-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .highlight-label {
+            color: #fb923c;
+            font-weight: bold;
+            font-size: 1.25rem;
+        }
+
+        .highlight-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 24px;
+            text-align: center;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 16px;
+            margin-top: 24px;
+        }
+
+        .stat {
+            background: rgba(67, 20, 7, 0.5);
+            border: 1px solid rgba(249, 115, 22, 0.4);
+            border-radius: 12px;
+            padding: 20px;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #fb923c;
+            margin-bottom: 8px;
+        }
+
+        .stat-title {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .stat-subtitle {
+            font-size: 0.875rem;
+            color: #fed6aa;
+        }
+
+        .testimonial {
+            background: rgba(67, 20, 7, 0.5);
+            border: 1px solid rgba(249, 115, 22, 0.4);
+            border-radius: 12px;
+            padding: 24px;
+            margin: 32px 0;
+        }
+
+        .testimonial-text {
+            color: #fed6aa;
+            font-style: italic;
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+
+        .stars {
+            display: flex;
+            justify-content: center;
+            gap: 4px;
+            margin: 16px 0;
+            font-size: 1.25rem;
+            color: #fb923c;
+        }
+
+        .price-tag {
+            background: rgba(249, 115, 22, 0.2);
+            border: 1px solid rgba(251, 146, 60, 0.5);
+            border-radius: 12px;
+            padding: 16px;
+            margin: 16px 0;
+            text-align: center;
+            color: #fdba74;
+            font-weight: 600;
+            font-size: 1.125rem;
+        }
+
+        .badges {
+            padding-top: 24px;
+            border-top: 1px solid rgba(124, 45, 18, 0.5);
+            margin-top: 24px;
+        }
+
+        .badge-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 16px;
+            font-size: 0.875rem;
+            color: #fed6aa;
+        }
+
+        .badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .card {
+                padding: 32px 24px;
+            }
+
+            h1 {
+                font-size: 1.875rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Tela Inicial -->
+        <div id="intro" class="text-center">
+            <div class="card">
+                <div class="icon-box">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                        <path d="M9 18V5l12-2v13"></path>
+                        <circle cx="6" cy="18" r="3"></circle>
+                        <circle cx="18" cy="16" r="3"></circle>
+                    </svg>
+                </div>
+
+                <h1>Descubra Por Que Você <span class="highlight">Ainda Não Conseguiu</span> Evoluir no Violão</h1>
+
+                <p class="subtitle">Em 2 minutos você vai entender <span class="highlight">exatamente</span> o que está
+                    te impedindo de tocar como sempre sonhou...</p>
+
+                <div class="feature-box">
+                    <div class="feature-item">
+                        <svg class="check-icon" viewBox="0 0 24 24" fill="#fb923c">
+                            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <span>Identifique o que realmente te bloqueia</span>
+                    </div>
+                    <div class="feature-item">
+                        <svg class="check-icon" viewBox="0 0 24 24" fill="#fb923c">
+                            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <span>Descubra como mais de 10.000 alunos superaram isso</span>
+                    </div>
+                    <div class="feature-item">
+                        <svg class="check-icon" viewBox="0 0 24 24" fill="#fb923c">
+                            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <span>Conheça o método que transforma em 30 dias</span>
+                    </div>
+                </div>
+
+                <button class="btn" onclick="iniciarQuiz()">Começar Diagnóstico Gratuito</button>
+
+                <p class="info-text">⏱️ Apenas 2 minutos • 10.000+ alunos já fizeram</p>
+            </div>
+        </div>
+
+        <!-- Tela de Perguntas -->
+        <div id="quiz" class="hidden">
+            <div class="progress-wrap">
+                <div class="progress-bar">
+                    <div id="progressBar" class="progress-fill"></div>
+                </div>
+                <p id="progressText" class="progress-text"></p>
+            </div>
+
+            <div class="card">
+                <h2 id="pergunta"></h2>
+                <p id="subtitulo" class="subtitle"></p>
+                <div id="opcoes" class="options"></div>
+                <div id="dica" class="tip-box hidden"></div>
+            </div>
+        </div>
+
+        <!-- Tela de Resultado -->
+        <div id="resultado" class="hidden">
+            <div class="card text-center">
+                <div class="result-icon-box">
+                    <svg id="resultIcon" class="result-icon" viewBox="0 0 24 24" fill="none" stroke="white"
+                        stroke-width="2">
+                        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+                    </svg>
+                </div>
+
+                <h1 id="resultTitle"></h1>
+                <p id="resultDesc" class="subtitle"></p>
+
+                <div class="highlight-box">
+                    <div class="highlight-header">
+                        <svg style="width:32px;height:32px;fill:#fb923c" viewBox="0 0 24 24">
+                            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+                        </svg>
+                        <span class="highlight-label">A SOLUÇÃO</span>
+                    </div>
+
+                    <p id="resultHighlight" class="highlight-title"></p>
+
+                    <div class="stats">
+                        <div class="stat">
+                            <div class="stat-number">100</div>
+                            <p class="stat-title">Níveis Completos</p>
+                            <p class="stat-subtitle">Do básico ao avançado</p>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">30</div>
+                            <p class="stat-title">Dias de Transformação</p>
+                            <p class="stat-subtitle">Evolução garantida</p>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">10K+</div>
+                            <p class="stat-title">Alunos Satisfeitos</p>
+                            <p class="stat-subtitle">Resultados comprovados</p>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="subtitle"><strong style="color:#fff">O segredo?</strong> Uma metodologia estruturada que te
+                    guia passo a passo, sem deixar você perdido ou desmotivado.</p>
+
+                <a href="https://metodo-violao-100.musicando.club" style="text-decoration:none">
+                    <button class="btn">Conhecer o Método Violão 100</button>
+                </a>
+                <a href="https://metodo-violao-100.musicando.club" style="text-decoration:none; color:white">
+                    <div class="price-tag">
+                        🎸 <span style="color:#fff">OFERTA
+                            VITALÍCIA:</span> 12x de R$ 29,90 • Acesso
+                        para sempre
+                </a>
+            </div>
+            </a>
+
+            <div class="testimonial">
+                <p class="testimonial-text">"Após muitos anos estagnado, perdido e desanimado, finalmente estou
+                    evoluindo e de forma rápida. O que Arthur Endo faz é organizar e sistematizar o estudo para que
+                    a gente assimile e aprimore cada passo, criando uma cadeia evolutiva da técnica."</p>
+                <div class="stars">★★★★★</div>
+                <p style="font-weight:600">— Fernando Costa, aluno</p>
+            </div>
+
+            <div class="badges">
+                <div class="badge-list">
+                    <div class="badge">
+                        <svg style="width:16px;height:16px;fill:#4ade80" viewBox="0 0 24 24">
+                            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <span>Garantia de 7 dias</span>
+                    </div>
+                    <div class="badge">
+                        <svg style="width:16px;height:16px;fill:#4ade80" viewBox="0 0 24 24">
+                            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <span>Acesso vitalício</span>
+                    </div>
+                    <div class="badge">
+                        <svg style="width:16px;height:16px;fill:#4ade80" viewBox="0 0 24 24">
+                            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <span>Professor premiado</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <script>
+        var perguntas = [
+            {
+                pergunta: "O que mais te impede de evoluir no violão hoje?",
+                subtitulo: "Seja honesto, queremos te ajudar de verdade",
+                opcoes: [
+                    { texto: "Não sei por onde começar ou o que estudar", tipo: "bloqueio" },
+                    { texto: "Começo animado, mas logo desisto", tipo: "desistencia" },
+                    { texto: "Sinto que estou estagnado há tempo", tipo: "frustacao" },
+                    { texto: "Já tentei de tudo e nada funciona", tipo: "tentativas" }
+                ]
+            },
+            {
+                pergunta: "Se você pudesse tocar violão como sempre sonhou, o que mais te deixaria feliz?",
+                subtitulo: "Imagine esse momento...",
+                opcoes: [
+                    { texto: "Tocar minhas músicas favoritas completas", tipo: "musicas" },
+                    { texto: "Impressionar amigos e família", tipo: "social" },
+                    { texto: "Finalmente me sentir um músico de verdade", tipo: "identidade" },
+                    { texto: "Dominar técnicas que parecem impossíveis", tipo: "tecnicas" }
+                ]
+            },
+            {
+                pergunta: "Quanto tempo você REALMENTE pode dedicar por dia?",
+                subtitulo: "Seja realista - isso é fundamental para seu sucesso",
+                opcoes: [
+                    { texto: "15-30 minutos (perfeito para evoluir!)", tipo: "ideal" },
+                    { texto: "30-60 minutos", tipo: "otimo" },
+                    { texto: "Menos de 15 minutos (já dá para começar!)", tipo: "pouco" },
+                    { texto: "Mais de 1 hora quando possível", tipo: "muito" }
+                ],
+                dica: "💡 <strong>Lembre-se:</strong> Com apenas 15-30 minutos por dia você consegue evoluir de forma consistente!"
+            },
+            {
+                pergunta: "O que já tentou antes?",
+                subtitulo: "Queremos entender sua jornada",
+                opcoes: [
+                    { texto: "Vídeos aleatórios no YouTube", tipo: "youtube" },
+                    { texto: "Aulas presenciais (mas parei)", tipo: "presencial" },
+                    { texto: "Outros cursos online que não funcionaram", tipo: "cursos" },
+                    { texto: "Nunca tentei de forma estruturada", tipo: "nunca" }
+                ]
+            },
+            {
+                pergunta: "Em 30 dias praticando da forma certa, onde você quer estar?",
+                subtitulo: "Essa é a promessa do Método Violão 100",
+                opcoes: [
+                    { texto: "Tocando minhas primeiras músicas inteiras", tipo: "musicas" },
+                    { texto: "Com técnicas sólidas e sem vícios", tipo: "tecnica" },
+                    { texto: "Evoluindo de forma consistente e visível", tipo: "evolucao" },
+                    { texto: "Confiante e motivado para continuar", tipo: "confianca" }
+                ],
+                dica: "✨ <strong>Promessa do método:</strong> Em 30 dias você vai transformar sua maneira de tocar!"
+            }
+        ];
+
+        var resultados = {
+            bloqueio: {
+                titulo: "O Problema NÃO É Você - É a Falta de Direção!",
+                descricao: "A principal causa de frustração no violão é não saber o que ou como estudar. O Método Violão 100 resolve isso com um caminho claro: 100 níveis do básico ao avançado.",
+                destaque: "NUNCA MAIS fique perdido sem saber o que estudar"
+            },
+            desistencia: {
+                titulo: "Você Merece um Método que te Mantém Motivado!",
+                descricao: "Desistir não é falta de talento - é falta de uma metodologia estimulante. Com níveis progressivos e desafios, você sentirá sua evolução a cada dia.",
+                destaque: "Evolução VISÍVEL que te mantém empolgado"
+            },
+            frustacao: {
+                titulo: "Chegou a Hora de Destravar Sua Evolução!",
+                descricao: "Estagnação acontece quando estudamos as coisas erradas ou da forma errada. Com 100 níveis estruturados e apostilas de revisão, você vai desbloquear seu potencial.",
+                destaque: "Sistema completo para sair do ZERO ao AVANÇADO"
+            },
+            tentativas: {
+                titulo: "O Método Certo Muda Tudo!",
+                descricao: "Você não falhou - os métodos que tentou é que falharam com você. Mais de 10.000 alunos já transformaram sua forma de tocar com uma metodologia que realmente funciona.",
+                destaque: "Aprovado por 10.000+ alunos que estavam como você"
+            }
+        };
+
+        var indiceAtual = 0;
+        var respostas = [];
+
+        function iniciarQuiz() {
+            document.getElementById('intro').classList.add('hidden');
+            document.getElementById('quiz').classList.remove('hidden');
+            mostrarPergunta(0);
+        }
+
+        function mostrarPergunta(indice) {
+            indiceAtual = indice;
+            var p = perguntas[indice];
+
+            document.getElementById('pergunta').textContent = p.pergunta;
+            document.getElementById('subtitulo').textContent = p.subtitulo;
+
+            var progresso = ((indice + 1) / perguntas.length) * 100;
+            document.getElementById('progressBar').style.width = progresso + '%';
+            document.getElementById('progressText').textContent = 'Pergunta ' + (indice + 1) + ' de ' + perguntas.length;
+
+            var container = document.getElementById('opcoes');
+            container.innerHTML = '';
+
+            for (var i = 0; i < p.opcoes.length; i++) {
+                var opcao = p.opcoes[i];
+                var btn = document.createElement('button');
+                btn.className = 'option-btn';
+                btn.textContent = opcao.texto;
+                btn.setAttribute('data-tipo', opcao.tipo);
+                btn.setAttribute('data-texto', opcao.texto);
+                btn.onclick = function () {
+                    var tipo = this.getAttribute('data-tipo');
+                    var texto = this.getAttribute('data-texto');
+                    selecionarResposta({ texto: texto, tipo: tipo });
+                };
+                container.appendChild(btn);
+            }
+
+            var dicaEl = document.getElementById('dica');
+            if (p.dica) {
+                dicaEl.innerHTML = p.dica;
+                dicaEl.classList.remove('hidden');
+            } else {
+                dicaEl.classList.add('hidden');
+            }
+        }
+
+        function selecionarResposta(opcao) {
+            respostas.push(opcao);
+
+            if (indiceAtual < perguntas.length - 1) {
+                setTimeout(function () {
+                    mostrarPergunta(indiceAtual + 1);
+                }, 300);
+            } else {
+                setTimeout(function () {
+                    mostrarResultado();
+                }, 500);
+            }
+        }
+
+        function mostrarResultado() {
+            document.getElementById('quiz').classList.add('hidden');
+            document.getElementById('resultado').classList.remove('hidden');
+
+            var tipoResultado = respostas[0].tipo;
+            var resultado = resultados[tipoResultado] || resultados.tentativas;
+
+            document.getElementById('resultTitle').textContent = resultado.titulo;
+            document.getElementById('resultDesc').textContent = resultado.descricao;
+            document.getElementById('resultHighlight').textContent = resultado.destaque;
+        }
+    </script>
+</body>
+
+</html>
