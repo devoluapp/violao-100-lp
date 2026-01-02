@@ -1,7 +1,7 @@
 (function () {
     /**
      * Função auxiliar para disparar a conversão e redirecionar
-     * Esta é a lógica que antes estava solta no HTML
+     * Ação de Conversão: Initiate checkout Violão 100
      */
     function reportConversion(url) {
         const callback = function () {
@@ -13,7 +13,7 @@
         // Verifica se a tag global do Google (gtag) está carregada
         if (typeof gtag === 'function') {
             gtag('event', 'conversion', {
-                'send_to': 'AW-17837722215/4m0JCKCMgdsbEOeU2LlC', // Seu ID/Label de conversão
+                'send_to': 'AW-17837722215/4m0JCKCMgdsbEOeU2LlC', // Ação: Initiate checkout Violão 100
                 'value': 1.0,
                 'currency': 'BRL',
                 'event_callback': callback
