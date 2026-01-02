@@ -2,23 +2,28 @@
     /**
      * Configuração do Rastreamento de Conversão do Google Ads
      * Evento: Clique no botão de Checkout (Initiate Checkout)
+     * Utiliza a função gtag_report_conversion definida no <head>
      */
     function setupConversionTracking() {
         // Seleciona todos os botões com a classe .btn-cta
         const buttons = document.querySelectorAll('.btn-cta');
 
         buttons.forEach(button => {
-            button.addEventListener('click', () => {
-                // Verifica se o gtag foi carregado
-                if (typeof gtag === 'function') {
+            button.addEventListener('click', (e) => {
+                const url = button.getAttribute('href');
 
-                    // Dispara o evento de conversão do Google Ads
-                    gtag('event', 'conversion', {
-                        'send_to': 'AW-17837722215/4m0JCKCMgdsbEOeU2LlC',
-                        'value': 1.0,
-                        'currency': 'BRL'
-                    });
-                    console.log('Evento de checkout disparado para botões .btn-cta');
+                // Verifica se a função fornecida pelo Google Ads está disponível
+                if (typeof gtag_report_conversion === 'function') {
+                    // Impede a navegação padrão imediata
+                    e.preventDefault();
+
+                    // Chama a função que dispara is evento e depois redireciona via callback
+                    gtag_report_conversion(url);
+
+                    console.log('Conversão disparada via gtag_report_conversion para: ' + url);
+                } else {
+                    console.warn('Função gtag_report_conversion não encontrada. Segue fluxo normal de clique.');
+                    // O link abrirá normalmente pois não chamamos preventDefault()
                 }
             });
         });
