@@ -131,46 +131,89 @@
             display: block;
         }
 
-        /* Botão custom de mute/unmute */
+        /* Botão "Clique para Ouvir" Centralizado */
         .mute-btn {
             position: absolute;
-            right: 1rem;
-            bottom: 1rem;
-            display: inline-flex;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            flex-direction: column;
+            /* Ícone acima do texto */
             align-items: center;
             justify-content: center;
-            width: 44px;
-            height: 44px;
-            border-radius: 9999px;
-            background: rgba(0, 0, 0, 0.6);
+            gap: 8px;
+            width: max-content;
+            max-width: 85%;
+            /* Garante espaço das bordas */
+            padding: 1rem 1.5rem;
+            border-radius: 30px;
+            background: rgba(0, 0, 0, 0.8);
             color: #fff;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(4px);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(6px);
             cursor: pointer;
-            transition: transform .12s ease, opacity .12s ease;
-            z-index: 20;
+            transition: all 0.3s ease;
+            z-index: 30;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            text-decoration: none;
+            text-align: center;
         }
 
         .mute-btn:hover {
-            transform: translateY(-3px);
+            transform: translate(-50%, -50%) scale(1.05);
+            background: rgba(230, 81, 0, 0.9);
+            border-color: #e65100;
+            box-shadow: 0 0 30px rgba(230, 81, 0, 0.5);
         }
 
-        .mute-btn:focus {
-            outline: 3px solid rgba(230, 81, 0, 0.35);
+        .mute-btn span {
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            white-space: normal;
+            /* Permite quebra de linha */
+            line-height: 1.4;
+        }
+
+        /* Animação de pulso para chamar atenção */
+        @keyframes pulse-shadow {
+            0% {
+                box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4);
+            }
+
+            70% {
+                box-shadow: 0 0 0 10px rgba(255, 255, 255, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+            }
+        }
+
+        .mute-btn {
+            animation: pulse-shadow 2s infinite;
         }
 
         .mute-btn svg {
-            width: 20px;
-            height: 20px;
+            width: 48px;
+            height: 48px;
             fill: currentColor;
+            margin-bottom: 4px;
         }
 
         @media (min-width: 768px) {
+
+            /* Ajustes para desktop */
+            .mute-btn span {
+                font-size: 1.25rem;
+            }
+
             .mute-btn {
-                right: 2rem;
-                bottom: 2rem;
-                width: 48px;
-                height: 48px;
+                padding: 1.5rem 3rem;
+                border-radius: 9999px;
+                max-width: 80%;
             }
 
             .hero-video {
@@ -217,16 +260,12 @@
                         Seu navegador não suporta a tag de vídeo.
                     </video>
 
-                    <button id="video-unmute-btn" class="mute-btn" aria-pressed="false" aria-label="Desmutar vídeo"
-                        title="Desmutar">
-                        <svg class="icon-muted" viewBox="0 0 24 24" aria-hidden="true">
+                    <button id="video-unmute-btn" class="mute-btn" aria-label="Ativar som">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
                             <path
-                                d="M16.5 12c0-1.77-.77-3.36-1.99-4.47l1.42-1.42C17.73 7.98 18.5 9.9 18.5 12s-.77 4.02-2.57 5.89l-1.42-1.42C15.73 15.36 16.5 13.77 16.5 12zM3 9v6h4l5 5V4L7 9H3z" />
+                                d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-.77-3.29-2-4.27v8.54c1.23-.98 2-2.5 2-4.27zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.93 7-4.63 7-8.77s-2.99-7.84-7-8.77z" />
                         </svg>
-                        <svg class="icon-unmuted hidden" viewBox="0 0 24 24" aria-hidden="true">
-                            <path
-                                d="M3 9v6h4l5 5V4L7 9H3zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.93 7-4.63 7-8.77s-2.99-7.84-7-8.77z" />
-                        </svg>
+                        <span>O VÍDEO JÁ COMEÇOU, CLIQUE AQUI PARA OUVIR</span>
                     </button>
                 </div>
                 <p class="hidden text-lg text-gray-300 font-light leading-relaxed pt-4">
@@ -235,7 +274,7 @@
                 </p>
                 <div class="pt-6">
                     <a href="https://go.hotmart.com/G103537414S?ap=a1c9" class="btn-cta text-lg w-full md:w-auto">
-                        GARANTIR MINHA VAGA COM 60% OFF
+                        QUERO ECONOMIZAR AGORA
                     </a>
                 </div>
             </div>
@@ -317,9 +356,12 @@
                     </div>
                     <h3 class="text-2xl font-bold text-center mb-6 text-white">MÉTODO VIOLÃO 100</h3>
                     <div class="text-center mb-6">
-                        <p class="text-sm text-gray-300">Investimento Único</p>
-                        <p class="text-4xl font-extrabold text-green-500">R$ 299,60</p>
-                        <p class="text-xs text-brand-gold font-bold mt-1">ECONOMIA DE R$ 14.000+</p>
+                        <p class="text-sm text-gray-300 mb-1">Investimento Único</p>
+                        <div class="flex flex-col items-center justify-center">
+                            <p class="text-4xl font-extrabold text-green-500">12x R$ 29,90</p>
+                            <p class="text-sm text-gray-400 mt-1">ou R$ 299,60 à vista</p>
+                        </div>
+                        <p class="text-xs text-brand-gold font-bold mt-2">ECONOMIA DE R$ 14.000+</p>
                     </div>
                     <ul class="space-y-4 text-sm text-gray-200">
                         <li class="flex items-start gap-3">
@@ -345,8 +387,8 @@
                     </ul>
                     <div class="mt-8">
                         <a href="https://go.hotmart.com/G103537414S?ap=a1c9"
-                            class="btn-cta w-full text-sm md:text-base shadow-lg hover:shadow-brand-orange/50">QUERO
-                            ECONOMIZAR AGORA</a>
+                            class="btn-cta w-full text-sm md:text-base shadow-lg hover:shadow-brand-orange/50">
+                            QUERO ECONOMIZAR AGORA</a>
                     </div>
                 </div>
             </div>
@@ -391,8 +433,8 @@
             </div>
 
             <div class="text-center mt-12">
-                <a href="https://go.hotmart.com/G103537414S?ap=a1c9" class="btn-cta">GARANTIR MINHA VAGA COM DESCONTO
-                    AGORA</a>
+                <a href="https://go.hotmart.com/G103537414S?ap=a1c9" class="btn-cta">
+                    GARANTIR OFERTA AGORA</a>
             </div>
         </div>
     </section>
@@ -483,7 +525,7 @@
             </div>
 
             <div class="text-center mt-8">
-                <a href="https://go.hotmart.com/G103537414S?ap=a1c9" class="btn-cta">GARANTIR ACESSO</a>
+                <a href="https://go.hotmart.com/G103537414S?ap=a1c9" class="btn-cta">GARANTIR ACESSO VITALÍCIO</a>
             </div>
         </div>
     </section>
@@ -822,7 +864,7 @@
                         </div>
 
                         <a href="https://go.hotmart.com/G103537414S?ap=a1c9"
-                            class="btn-cta w-full text-xl shadow-orange-500/20">GARANTIR ACESSO</a>
+                            class="btn-cta w-full text-xl shadow-orange-500/20">GARANTIR ACESSO VITALÍCIO</a>
 
                         <div class="flex items-center justify-center gap-4 mt-6 grayscale opacity-60">
                             <!-- Simple safe icons svgs or text -->
@@ -1108,36 +1150,26 @@
             const btn = document.getElementById('video-unmute-btn');
             if (!v || !btn) return;
 
-            const iconMuted = btn.querySelector('.icon-muted');
-            const iconUnmuted = btn.querySelector('.icon-unmuted');
-
-            function updateButton() {
-                const muted = !!v.muted;
-                btn.setAttribute('aria-pressed', (!muted).toString());
-                if (muted) {
-                    iconMuted.classList.remove('hidden');
-                    iconUnmuted.classList.add('hidden');
-                    btn.setAttribute('title', 'Desmutar');
-                    btn.setAttribute('aria-label', 'Desmutar vídeo');
-                } else {
-                    iconMuted.classList.add('hidden');
-                    iconUnmuted.classList.remove('hidden');
-                    btn.setAttribute('title', 'Mutar');
-                    btn.setAttribute('aria-label', 'Mutar vídeo');
+            // O botão apenas aparece se o vídeo estiver mudo/pausado inicialmente e some ao clicar
+            function checkState() {
+                if (!v.muted) {
+                    btn.style.display = 'none';
                 }
             }
 
-            // Clique alterna mute e tenta tocar quando for desmutado
-            btn.addEventListener('click', function (e) {
-                v.muted = !v.muted;
-                if (!v.muted) {
-                    v.play().catch(() => { /* autoplay pode ser bloqueado, sem problema */ });
-                }
-                updateButton();
+            btn.addEventListener('click', function () {
+                v.muted = false;
+                v.volume = 1.0;
+                v.play().catch(e => console.log("Play error:", e));
+                btn.style.display = 'none'; // Some imediatamente
             });
 
-            // Inicializa o estado do botão
-            updateButton();
+            // Se o usuário iniciar o vídeo pelos controles nativos, também sumimos com o botão
+            v.addEventListener('volumechange', checkState);
+            v.addEventListener('play', checkState);
+
+            // Check inicial
+            checkState();
         });
     </script>
     <!-- Conversion Tracking -->
